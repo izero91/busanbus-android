@@ -19,22 +19,22 @@ public class WebActivity extends BaseActivity {
 
 	WebView webview;
 	ProgressBar progress;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webview);
-		
-		tracker.trackPageView("/Notice"); 
-		
-		setTitle("°øÁö»çÇ×");
-		
+
+		tracker.trackPageView("/Notice");
+
+		setTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+
 		webview = (WebView)findViewById(R.id.webview);
 		webview.loadUrl("http://busanbus.tistory.com/m/post/list");
 		progress = (ProgressBar)findViewById(R.id.progress);
 		webview.getSettings().setJavaScriptEnabled(true);
 		webview.setWebChromeClient(new WebChromeClient(){
-			
+
 			@Override
 			public void onProgressChanged(WebView view, int newProgress) {
 			  if(newProgress >= 100){
@@ -45,12 +45,12 @@ public class WebActivity extends BaseActivity {
 				  webview.setVisibility(View.INVISIBLE);
 				  progress.setVisibility(View.VISIBLE);
 			  }
-			  
+
 		}});
 		webview.setWebViewClient(new EventWebViewClient());
-		
+
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	    if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) {
@@ -63,10 +63,10 @@ public class WebActivity extends BaseActivity {
 	private class EventWebViewClient extends WebViewClient {
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url){
-			
+
 			try {
 				URI uri= new URI(url);
-				
+
 				if(uri.getScheme().equals("http") || uri.getScheme().equals("https")){
 					view.loadUrl(url);
 				}
@@ -75,12 +75,12 @@ public class WebActivity extends BaseActivity {
 					startActivity(i);
 				}
 			} catch (URISyntaxException e) {}
-			
+
 			return true;
 		}
 	}
-	
-	
+
+
 
 
 

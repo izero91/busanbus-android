@@ -26,6 +26,7 @@ public class BusanBusActivity extends Activity {
 	private TextView mMsg;
 
 	//데이터 최신 버전 날짜
+	//ADDED!!
 	private int mYear = 2013;
 	private int mMonth = 11;
 	private int mDay = 25;
@@ -61,7 +62,7 @@ public class BusanBusActivity extends Activity {
 			mFile.delete();
 			mMsg.setText(getString(R.string.loading_msg));
 		}
-		
+
 		else if(getIntent()!=null){
 			Bundle bundle = getIntent().getExtras();
 			if(bundle!=null){
@@ -70,9 +71,9 @@ public class BusanBusActivity extends Activity {
 				}
 			}
 		}
-		
-		
-		
+
+
+
 
 		new DataTask().execute();
 	}
@@ -81,7 +82,7 @@ public class BusanBusActivity extends Activity {
 
 		@Override
 		protected Boolean doInBackground(Boolean... arg0) {
-			
+
 			if (!mFile.exists()) {
 				mDir.mkdirs();
 

@@ -81,15 +81,15 @@ public class BaseActivity extends SherlockFragmentActivity {
 		return super.onCreateDialog(id);
 	}
 
-	
-	
-	
+
+
+
 	@Override
 	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
-		
+
 		com.actionbarsherlock.view.MenuInflater inflater = getSupportMenuInflater();
 	    inflater.inflate(R.menu.menu, menu);
-	    
+
 		return true;
 	}
 
